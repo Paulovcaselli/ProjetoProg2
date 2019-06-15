@@ -6,14 +6,14 @@ package Dados;
  */
 public class Manga {
 
-    private String nome, editora, idioma;
-    private float valor;
+    private String nome, editora, idioma, valor;
+    //private float valor;
 
-    public Manga(String nome, String editora, String idioma, float valor) {
-        this.nome = nome;
-        this.editora = editora;
-        this.idioma = idioma;
-        this.valor = valor;
+    public Manga(String nome, String editora, String idioma, String valor) {
+        this.setNome(nome);
+        this.setEditora(editora);
+        this.setIdioma(idioma);
+        this.setValor(valor);
     }
 
     public String getNome() {
@@ -40,11 +40,11 @@ public class Manga {
         this.idioma = idioma;
     }
 
-    public float getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(float valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

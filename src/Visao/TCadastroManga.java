@@ -1,4 +1,6 @@
 package Visao;
+
+import Dados.Manga;
 import Dados.Usuario;
 import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
@@ -6,13 +8,16 @@ import Exceptions.FalhaNaRemocaoException;
 import Exceptions.FalhaNaEdicaoException;
 import Negocios.FachadaUsuario;
 import Dados.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author paulo
  */
 public class TCadastroManga extends javax.swing.JFrame {
-    	static Usuario usuario;
+
+    static Usuario usuario;
+
     /**
      * Creates new form TCadastroManga
      */
@@ -100,6 +105,11 @@ public class TCadastroManga extends javax.swing.JFrame {
 
         jButtonCadastrarManga.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonCadastrarManga.setText("Cadastrar");
+        jButtonCadastrarManga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarMangaActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCadastrarManga);
         jButtonCadastrarManga.setBounds(370, 230, 90, 23);
 
@@ -121,6 +131,16 @@ public class TCadastroManga extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVoltarMouseClicked
+
+    private void jButtonCadastrarMangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarMangaActionPerformed
+        Manga manga = new Manga(jTextFieldNomeManga.getText(), jTextFieldEditoraManga.getText(), jTextFieldIdiomaManga.getText(), jTextFieldValorManga.getText());
+                try {
+                    FachadaUsuario.getInstance().cadastrar(manga);
+                    JOptionPane.showMessageDialog(null, "Mangá cadastrado com sucesso!");
+            
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButtonCadastrarMangaActionPerformed
 
     /**
      * @param args the command line arguments
