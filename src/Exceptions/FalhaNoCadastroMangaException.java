@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  */
 public class FalhaNoCadastroMangaException extends Exception {
 
-    public FalhaNoCadastroMangaException(boolean jaExiste, String nome, String editora, String idioma, float valor) {
+    public FalhaNoCadastroMangaException(boolean jaExiste, String nome, String editora, String idioma, String valor) {
         super("Falha no cadastro");
         if (nome.contains("")) {
             JOptionPane.showMessageDialog(null, "Nome inválido");
@@ -18,8 +18,6 @@ public class FalhaNoCadastroMangaException extends Exception {
             JOptionPane.showMessageDialog(null, "Editora inválida");
         } else if (idioma.contains("")) {
             JOptionPane.showMessageDialog(null, "Idioma inválido");
-        } else if (valor < 0) {
-            JOptionPane.showMessageDialog(null, "Valor inválido");
         }
     }
 

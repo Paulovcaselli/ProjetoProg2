@@ -1,4 +1,5 @@
 package Visao;
+
 import Dados.Usuario;
 import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
@@ -120,16 +121,16 @@ public class TCadastroUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-            Usuario usuario = new Usuario(jTextFieldCLogin.getText(),String.valueOf(jTextFieldCSenha.getText()),jTextFieldCNome.getText(),jTextFieldCEmail.getText());
-				try {
-					FachadaUsuario.getInstance().cadastrar(usuario);
-					JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso !");
-					TelaLogin tela = new TelaLogin();
-					tela.setVisible(true);
-					dispose();
-				} catch (FalhaNoCadastroException e1) {
-					e1.getMessage();
-				}
+        Usuario usuario = new Usuario(jTextFieldCLogin.getText(), String.valueOf(jTextFieldCSenha.getText()), jTextFieldCNome.getText(), jTextFieldCEmail.getText());
+        try {
+            FachadaUsuario.getInstance().cadastrar(usuario);
+            JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso !");
+            TelaLogin tela = new TelaLogin();
+            tela.setVisible(true);
+            dispose();
+        } catch (FalhaNoCadastroException e1) {
+            e1.getMessage();
+        }
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSairMouseClicked

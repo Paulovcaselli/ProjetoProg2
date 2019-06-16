@@ -1,5 +1,6 @@
 package Dados;
 
+import Exceptions.FalhaNoCadastroMangaException;
 import java.util.ArrayList;
 
 /**
@@ -15,15 +16,17 @@ public class RepositorioMangaArraylist implements RepositorioManga {
     }
 
     @Override
-    public void inserir(Manga manga) {
+    public void inserir(Manga manga) throws FalhaNoCadastroMangaException {
         colecoesMangas.add(manga);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        	boolean jaExiste = false;
+		if(manga.getNome().equals("")||manga.getEditora().equals("")||manga.getIdioma().equals("")||manga.getValor().equals("")) {
+			erroNoCadastro(jaExiste,manga.getNome(),manga.getEditora(),manga.getIdioma(),manga.getValor());
+		}
     }
 
     @Override
     public void remover(Manga manga) {
-        colecoesMangas.remove(manga);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        colecoesMangas.remove(manga);        
     }
 
     @Override
@@ -40,6 +43,12 @@ public class RepositorioMangaArraylist implements RepositorioManga {
     public ArrayList listar() {
         return colecoesMangas;
 
+    }
+
+    private void erroNoCadastro(boolean jaExiste, String nome, String editora, String idioma, String valor) throws FalhaNoCadastroMangaException {
+        		FalhaNoCadastroMangaException e;
+		e = new FalhaNoCadastroMangaException(jaExiste,nome,editora,idioma,valor);
+		throw e;
     }
 
 }

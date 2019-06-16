@@ -8,6 +8,7 @@ import Exceptions.FalhaNaRemocaoException;
 import Exceptions.FalhaNaEdicaoException;
 import Negocios.FachadaUsuario;
 import Dados.Usuario;
+import Exceptions.FalhaNoCadastroMangaException;
 import javax.swing.JOptionPane;
 
 /**
@@ -134,11 +135,12 @@ public class TCadastroManga extends javax.swing.JFrame {
 
     private void jButtonCadastrarMangaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarMangaActionPerformed
         Manga manga = new Manga(jTextFieldNomeManga.getText(), jTextFieldEditoraManga.getText(), jTextFieldIdiomaManga.getText(), jTextFieldValorManga.getText());
-                try {
-                    FachadaUsuario.getInstance().cadastrar(manga);
-                    JOptionPane.showMessageDialog(null, "Mangá cadastrado com sucesso!");
-            
-        } catch (Exception e) {
+        try {
+            FachadaUsuario.getInstance().cadastrar(manga);
+            JOptionPane.showMessageDialog(null, "Mangá cadastrado com sucesso!");
+
+        } catch (FalhaNoCadastroMangaException e1) {
+            e1.getMessage();
         }
     }//GEN-LAST:event_jButtonCadastrarMangaActionPerformed
 
