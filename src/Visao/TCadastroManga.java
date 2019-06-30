@@ -22,10 +22,13 @@ public class TCadastroManga extends javax.swing.JFrame {
     /**
      * Creates new form TCadastroManga
      */
-    public TCadastroManga() {
+    public TCadastroManga(Usuario usuario) {
         initComponents();
+        this.usuario = usuario;
         jComboBoxColecaoManga.removeAllItems();
         jComboBoxColecaoManga.addItem("Selecione a coleção de Mangás:");
+        jComboBoxVolumeManga.removeAllItems();
+        jComboBoxVolumeManga.addItem("Selecione o volume do Mangá:");
     }
 
     /**
@@ -37,8 +40,8 @@ public class TCadastroManga extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBoxVolumeManga = new javax.swing.JComboBox<>();
         jComboBoxColecaoManga = new javax.swing.JComboBox<>();
-        jLabelSelColecao = new javax.swing.JLabel();
         jTextFieldValorManga = new javax.swing.JTextField();
         jLabelValorManga = new javax.swing.JLabel();
         jTextFieldIdiomaManga = new javax.swing.JTextField();
@@ -57,14 +60,13 @@ public class TCadastroManga extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        jComboBoxVolumeManga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBoxVolumeManga);
+        jComboBoxVolumeManga.setBounds(240, 160, 215, 27);
+
         jComboBoxColecaoManga.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jComboBoxColecaoManga);
-        jComboBoxColecaoManga.setBounds(170, 160, 215, 30);
-
-        jLabelSelColecao.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabelSelColecao.setText("Selecione a coleção:");
-        getContentPane().add(jLabelSelColecao);
-        jLabelSelColecao.setBounds(20, 160, 140, 30);
+        jComboBoxColecaoManga.setBounds(20, 160, 215, 27);
         getContentPane().add(jTextFieldValorManga);
         jTextFieldValorManga.setBounds(290, 110, 120, 28);
 
@@ -174,7 +176,7 @@ public class TCadastroManga extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TCadastroManga().setVisible(true);
+                new TCadastroManga(usuario).setVisible(true);
             }
         });
     }
@@ -184,11 +186,11 @@ public class TCadastroManga extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrarManga;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JComboBox<String> jComboBoxColecaoManga;
+    private javax.swing.JComboBox<String> jComboBoxVolumeManga;
     private javax.swing.JLabel jLabelCadastrarManga;
     private javax.swing.JLabel jLabelEditoraManga;
     private javax.swing.JLabel jLabelIdiomaManga;
     private javax.swing.JLabel jLabelNomeManga;
-    private javax.swing.JLabel jLabelSelColecao;
     private javax.swing.JLabel jLabelValorManga;
     private javax.swing.JTextField jTextFieldEditoraManga;
     private javax.swing.JTextField jTextFieldIdiomaManga;

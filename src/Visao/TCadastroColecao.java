@@ -1,4 +1,5 @@
 package Visao;
+
 import Dados.Usuario;
 import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
@@ -11,13 +12,15 @@ import Negocios.FachadaUsuario;
  * @author paulo
  */
 public class TCadastroColecao extends javax.swing.JFrame {
-    	static Usuario usuario;
-        
+
+    static Usuario usuario;
+
     /**
      * Creates new form TCadastroColecao
      */
-    public TCadastroColecao() {
+    public TCadastroColecao(Usuario usuario) {
         initComponents();
+        this.usuario = usuario;
     }
 
     /**
@@ -45,7 +48,7 @@ public class TCadastroColecao extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jButtonVoltar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButtonVoltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -53,12 +56,12 @@ public class TCadastroColecao extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonVoltar);
-        jButtonVoltar.setBounds(300, 240, 63, 21);
+        jButtonVoltar.setBounds(270, 230, 90, 23);
 
-        jButtonCadastrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButtonCadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
         getContentPane().add(jButtonCadastrar);
-        jButtonCadastrar.setBounds(370, 240, 90, 21);
+        jButtonCadastrar.setBounds(370, 230, 90, 23);
         getContentPane().add(jTextFieldValorUnit);
         jTextFieldValorUnit.setBounds(220, 170, 190, 30);
 
@@ -90,7 +93,7 @@ public class TCadastroColecao extends javax.swing.JFrame {
         getContentPane().add(Fundo);
         Fundo.setBounds(0, 0, 610, 300);
 
-        setSize(new java.awt.Dimension(602, 320));
+        setSize(new java.awt.Dimension(602, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -130,7 +133,7 @@ public class TCadastroColecao extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TCadastroColecao().setVisible(true);
+                new TCadastroColecao(usuario).setVisible(true);
             }
         });
     }

@@ -32,9 +32,8 @@ public class TUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonRemoverManga = new javax.swing.JButton();
         jButtonCadastrarManga = new javax.swing.JButton();
-        jButtonRemoverColecao = new javax.swing.JButton();
+        jButtonRemover = new javax.swing.JButton();
         jButtonConsultarColecao = new javax.swing.JButton();
         jButtonCadastrarColecao = new javax.swing.JButton();
         jLabelColecoes = new javax.swing.JLabel();
@@ -50,12 +49,7 @@ public class TUsuario extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jButtonRemoverManga.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButtonRemoverManga.setText("Remover Mangá");
-        getContentPane().add(jButtonRemoverManga);
-        jButtonRemoverManga.setBounds(210, 120, 130, 21);
-
-        jButtonCadastrarManga.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButtonCadastrarManga.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonCadastrarManga.setText("Cadastrar Mangá");
         jButtonCadastrarManga.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -63,19 +57,29 @@ public class TUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadastrarManga);
-        jButtonCadastrarManga.setBounds(210, 80, 130, 21);
+        jButtonCadastrarManga.setBounds(210, 80, 140, 27);
 
-        jButtonRemoverColecao.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButtonRemoverColecao.setText("Remover Coleção");
-        getContentPane().add(jButtonRemoverColecao);
-        jButtonRemoverColecao.setBounds(30, 160, 130, 21);
+        jButtonRemover.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonRemover.setText("Remover");
+        jButtonRemover.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonRemoverMouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButtonRemover);
+        jButtonRemover.setBounds(210, 130, 140, 27);
 
-        jButtonConsultarColecao.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButtonConsultarColecao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonConsultarColecao.setText("Consultar Coleção");
+        jButtonConsultarColecao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonConsultarColecaoMouseClicked(evt);
+            }
+        });
         getContentPane().add(jButtonConsultarColecao);
-        jButtonConsultarColecao.setBounds(30, 120, 130, 21);
+        jButtonConsultarColecao.setBounds(30, 130, 140, 27);
 
-        jButtonCadastrarColecao.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jButtonCadastrarColecao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonCadastrarColecao.setText("Cadastrar Coleção");
         jButtonCadastrarColecao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -83,7 +87,7 @@ public class TUsuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButtonCadastrarColecao);
-        jButtonCadastrarColecao.setBounds(30, 80, 130, 21);
+        jButtonCadastrarColecao.setBounds(30, 80, 140, 27);
 
         jLabelColecoes.setFont(new java.awt.Font("Freestyle Script", 1, 48)); // NOI18N
         jLabelColecoes.setText("Coleções:");
@@ -172,16 +176,28 @@ public class TUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuDadosUsuarioMouseClicked
 
     private void jButtonCadastrarColecaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarColecaoMouseClicked
-        TCadastroColecao tela = new TCadastroColecao();
+        TCadastroColecao tela = new TCadastroColecao(usuario);
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCadastrarColecaoMouseClicked
 
     private void jButtonCadastrarMangaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarMangaMouseClicked
-        TCadastroManga tela = new TCadastroManga();
+        TCadastroManga tela = new TCadastroManga(usuario);
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonCadastrarMangaMouseClicked
+
+    private void jButtonConsultarColecaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonConsultarColecaoMouseClicked
+        TConsultarColecao tela = new TConsultarColecao(usuario);
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonConsultarColecaoMouseClicked
+
+    private void jButtonRemoverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRemoverMouseClicked
+        TRemoverColecao tela = new TRemoverColecao(usuario);
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonRemoverMouseClicked
 
     /**
      * @param args the command line arguments
@@ -223,8 +239,7 @@ public class TUsuario extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCadastrarColecao;
     private javax.swing.JButton jButtonCadastrarManga;
     private javax.swing.JButton jButtonConsultarColecao;
-    private javax.swing.JButton jButtonRemoverColecao;
-    private javax.swing.JButton jButtonRemoverManga;
+    private javax.swing.JButton jButtonRemover;
     private javax.swing.JLabel jLabelColecoes;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuDadosUsuario;
