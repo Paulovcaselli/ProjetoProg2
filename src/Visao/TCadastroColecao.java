@@ -1,11 +1,14 @@
 package Visao;
 
+import Dados.ColecaoManga;
 import Dados.Usuario;
 import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
 import Exceptions.FalhaNaRemocaoException;
 import Exceptions.FalhaNaEdicaoException;
+import Exceptions.FalhaNoCadastroColecaoException;
 import Negocios.FachadaUsuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -60,6 +63,11 @@ public class TCadastroColecao extends javax.swing.JFrame {
 
         jButtonCadastrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonCadastrar);
         jButtonCadastrar.setBounds(370, 230, 90, 23);
         getContentPane().add(jTextFieldValorUnit);
@@ -102,6 +110,16 @@ public class TCadastroColecao extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButtonVoltarMouseClicked
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        ColecaoManga colecao = new ColecaoManga(jTextFieldNomeColecao.getText(), jTextFieldQuantColecao.getText(), jTextFieldValorUnit.getText());
+        try {
+            FachadaUsuario.getInstance().inserir(colecao);
+            JOptionPane.showMessageDialog(null, "Colecao cadastrada com sucesso!");
+        } catch (FalhaNoCadastroColecaoException e1) {
+            e1.getMessage();
+        }
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     /**
      * @param args the command line arguments

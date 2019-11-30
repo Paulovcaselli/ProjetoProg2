@@ -9,6 +9,7 @@ import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
 import Exceptions.FalhaNaRemocaoException;
 import Exceptions.FalhaNaEdicaoException;
+import Exceptions.FalhaNoCadastroColecaoException;
 import Exceptions.FalhaNoCadastroMangaException;
 
 /**
@@ -43,7 +44,7 @@ public class FachadaUsuario {
         this.mangas.cadastrar(manga);
     }
 
-    public void inserir(ColecaoManga colecao) {
+    public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException{
         this.colecoes.inserir(colecao);
     }
 
