@@ -20,7 +20,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Login: " + login + "\nSenha: " + senha + "\nCurso: " + nome + "\nEmail: " + email;
+        return "Login: " + login + "\nSenha: " + senha + "\nNome: " + nome + "\nEmail: " + email;
     }
 
     public Usuario clone() {

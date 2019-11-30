@@ -172,7 +172,7 @@ public class TUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuLogoutMouseClicked
 
     private void jMenuDadosUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDadosUsuarioMouseClicked
-        JOptionPane.showMessageDialog(null, usuario.toString());
+        JOptionPane.showMessageDialog(null,usuario.toString());
     }//GEN-LAST:event_jMenuDadosUsuarioMouseClicked
 
     private void jButtonCadastrarColecaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarColecaoMouseClicked
