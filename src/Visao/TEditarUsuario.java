@@ -109,7 +109,7 @@ public class TEditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarMouseClicked
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-                Usuario usuarioA = new Usuario(usuario.getLogin(),(jTextFieldESenha.getText()),jTextFieldENome.getText(),jTextFieldEEmail.getText());
+                Usuario usuarioA = new Usuario(usuario.getLogin(),(jTextFieldESenha.getText()),jTextFieldENome.getText(),jTextFieldEEmail.getText(), usuario.getMinhasColecoes());
 			try {
                                 FachadaUsuario.getInstance().atualizar(usuarioA);
                                 JOptionPane.showMessageDialog(null, "Usuario atualizado com sucesso !");

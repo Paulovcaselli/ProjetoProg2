@@ -1,6 +1,7 @@
 package Dados;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -9,13 +10,23 @@ import java.io.Serializable;
 public class Usuario implements Serializable {
 
     private String login, senha, nome, email;
+    private ArrayList<ColecaoManga> minhasColecoes;
 
-    public Usuario(String login, String senha, String nome, String email) {
+    public Usuario(String login, String senha, String nome, String email, ArrayList<ColecaoManga> minhasColecoes) {
         this.setLogin(login.toUpperCase());
         this.setSenha(senha);
         this.setNome(nome);
         this.setEmail(email);
+        this.setMinhasColecoes(minhasColecoes);
 
+    }
+    
+    public ArrayList<ColecaoManga> getMinhasColecoes() {
+        return minhasColecoes;
+    }
+
+    public void setMinhasColecoes(ArrayList<ColecaoManga> minhasColecoes) {
+        this.minhasColecoes = minhasColecoes;
     }
 
     @Override
@@ -24,7 +35,7 @@ public class Usuario implements Serializable {
     }
 
     public Usuario clone() {
-        return new Usuario(this.login, this.senha, this.nome, this.email);
+        return new Usuario(this.login, this.senha, this.nome, this.email, this.minhasColecoes);
     }
 
     public String getSenha() {

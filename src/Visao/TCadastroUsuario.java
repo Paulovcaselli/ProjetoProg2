@@ -121,7 +121,7 @@ public class TCadastroUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-        Usuario usuario = new Usuario(jTextFieldCLogin.getText(), String.valueOf(jTextFieldCSenha.getText()), jTextFieldCNome.getText(), jTextFieldCEmail.getText());
+        Usuario usuario = new Usuario(jTextFieldCLogin.getText(), String.valueOf(jTextFieldCSenha.getText()), jTextFieldCNome.getText(), jTextFieldCEmail.getText(), FachadaUsuario.getInstance().listar().listar().listar());
         try {
             FachadaUsuario.getInstance().cadastrar(usuario);
             JOptionPane.showMessageDialog(null, "Usuario cadastrado com sucesso !");
