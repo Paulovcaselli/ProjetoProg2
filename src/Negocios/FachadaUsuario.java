@@ -44,8 +44,8 @@ public class FachadaUsuario {
         this.mangas.cadastrar(manga);
     }
 
-    public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException{
-        this.colecoes.inserir(colecao);
+    public void cadastrar(ColecaoManga colecao) throws FalhaNoCadastroColecaoException{
+        this.colecoes.cadastrar(colecao);
     }
 
     public void remover(String login) throws FalhaNaRemocaoException {
