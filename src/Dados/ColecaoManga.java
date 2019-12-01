@@ -1,6 +1,8 @@
 package Dados;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -9,11 +11,32 @@ import java.io.Serializable;
 public class ColecaoManga implements Serializable {
 
     private String nomeColecao, numVolume, valorUnit;
+    Usuario donoColecao;
+    ArrayList<Integer> meusVolumes;
 
     public ColecaoManga(String nomeColecao, String numVolume, String valorUnit) {
         this.setColecao(nomeColecao.toUpperCase());
         this.setNumVolume(numVolume);
         this.setValorUnit(valorUnit);
+        this.meusVolumes = new ArrayList<Integer>();
+    }
+    
+    public ArrayList<Integer> getMeusVolumes() {
+        return meusVolumes;
+    }
+    
+    public ArrayList<Integer> addVolumesColecao(int n){
+        meusVolumes.add(n);
+        Collections.sort(meusVolumes);
+        return meusVolumes;
+    }
+    
+    public Usuario getDonoColecao() {
+        return donoColecao;
+    }
+
+    public void setDonoColecao(Usuario donoColecao) {
+        this.donoColecao = donoColecao;
     }
 
     @Override
