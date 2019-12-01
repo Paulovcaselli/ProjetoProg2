@@ -25,7 +25,7 @@ public class ControleColecoes {
 
     private RepositorioColecaoManga colecoes = new RepositorioColecaoMangaArraylist();
 
-    public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException{
+    public void cadastrar(ColecaoManga colecao) throws FalhaNoCadastroColecaoException{
         colecoes.inserir(colecao);
     }
 

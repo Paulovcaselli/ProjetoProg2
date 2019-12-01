@@ -114,7 +114,7 @@ public class TCadastroColecao extends javax.swing.JFrame {
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         ColecaoManga colecao = new ColecaoManga(jTextFieldNomeColecao.getText(), jTextFieldQuantColecao.getText(), jTextFieldValorUnit.getText());
         try {
-            FachadaUsuario.getInstance().inserir(colecao);
+            FachadaUsuario.getInstance().cadastrar(colecao);
             JOptionPane.showMessageDialog(null, "Colecao cadastrada com sucesso!");
         } catch (FalhaNoCadastroColecaoException e1) {
             e1.getMessage();
