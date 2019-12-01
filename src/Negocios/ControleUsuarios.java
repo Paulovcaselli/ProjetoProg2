@@ -8,6 +8,11 @@ import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
 import Exceptions.FalhaNaRemocaoException;
 import Exceptions.FalhaNaEdicaoException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -56,4 +61,23 @@ public class ControleUsuarios {
 		ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(path));
 		usuarios = (RepositorioUsuarioArray) ois.readObject();
 	}*/
+    public void gravarDados() throws IOException {
+
+        Usuario usuario = new Usuario();
+        File f = new File("Usuarios.txt");
+        FileOutputStream fos = new FileOutputStream(f);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(usuario);
+        oos.close();
+    }
+
+    public void lerDados() throws IOException, ClassNotFoundException {
+
+        File f = new File("Usuarios.txt");
+        FileInputStream fis = new FileInputStream(f);
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Object o = ois.readObject();
+        Usuario clone = (Usuario) o;
+    }
+
 }

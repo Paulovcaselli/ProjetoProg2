@@ -1,5 +1,7 @@
 package Dados;
 
+import Exceptions.FalhaNoCadastroColecaoException;
+import Exceptions.FalhaNoCadastroMangaException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -11,9 +13,13 @@ public class RepositorioColecaoMangaArraylist implements RepositorioColecaoManga
 
     ArrayList<ColecaoManga> colecoes = new ArrayList();
 
-    public void inserir(ColecaoManga colecao) {
+    @Override
+    public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException {
         colecoes.add(colecao);
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean jaExiste = false;
+        if (colecao.getNomeColecao().equals("") || colecao.getNumVolume().equals("") || colecao.getValorUnit().equals("")) {
+            erroNoCadastro(jaExiste, colecao.getNomeColecao(), colecao.getNumVolume(), colecao.getValorUnit());
+        }
     }
 
     @Override
@@ -36,6 +42,12 @@ public class RepositorioColecaoMangaArraylist implements RepositorioColecaoManga
     public ArrayList listar() {
         return colecoes;
 
+    }
+
+    private void erroNoCadastro(boolean jaExiste, String nomeColecao, String numVolume, String valorUnit) throws FalhaNoCadastroColecaoException {
+        FalhaNoCadastroColecaoException e;
+        e = new FalhaNoCadastroColecaoException(jaExiste, nomeColecao, numVolume, valorUnit);
+        throw e;
     }
 
 }

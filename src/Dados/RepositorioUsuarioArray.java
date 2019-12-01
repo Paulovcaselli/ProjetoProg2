@@ -4,6 +4,10 @@ import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
 import Exceptions.FalhaNaRemocaoException;
 import Exceptions.FalhaNaEdicaoException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -91,5 +95,5 @@ public class RepositorioUsuarioArray implements RepositorioUsuario, Serializable
 		FalhaNaRemocaoException e;
 		e = new FalhaNaRemocaoException(login);
 		throw e;		
-	}      
+	}        
 }

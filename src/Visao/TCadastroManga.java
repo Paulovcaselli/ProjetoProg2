@@ -140,7 +140,6 @@ public class TCadastroManga extends javax.swing.JFrame {
         try {
             FachadaUsuario.getInstance().cadastrar(manga);
             JOptionPane.showMessageDialog(null, "Mangá cadastrado com sucesso!");
-
         } catch (FalhaNoCadastroMangaException e1) {
             e1.getMessage();
         }

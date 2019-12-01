@@ -14,6 +14,7 @@ import Dados.RepositorioColecaoManga;
 import Dados.RepositorioColecaoMangaArraylist;
 import Dados.RepositorioManga;
 import Dados.RepositorioMangaArraylist;
+import Exceptions.FalhaNoCadastroColecaoException;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +25,7 @@ public class ControleColecoes {
 
     private RepositorioColecaoManga colecoes = new RepositorioColecaoMangaArraylist();
 
-    public void inserir(ColecaoManga colecao) {
+    public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException{
         colecoes.inserir(colecao);
     }
 

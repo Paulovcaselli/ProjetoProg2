@@ -1,4 +1,5 @@
 package Dados;
+import Exceptions.FalhaNoCadastroColecaoException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  */
 public interface RepositorioColecaoManga {
     
-    public void inserir (ColecaoManga colecao);
+    public void inserir (ColecaoManga colecao) throws FalhaNoCadastroColecaoException;
     public void remover (ColecaoManga colecao);
     public ColecaoManga procurar (String colecao);
     public ArrayList listar();
