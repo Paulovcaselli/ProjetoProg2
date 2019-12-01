@@ -15,10 +15,18 @@ public class RepositorioColecaoMangaArraylist implements RepositorioColecaoManga
 
     @Override
     public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException {
-        colecoes.add(colecao);
         boolean jaExiste = false;
         if (colecao.getNomeColecao().equals("") || colecao.getNumVolume().equals("") || colecao.getValorUnit().equals("")) {
             erroNoCadastro(jaExiste, colecao.getNomeColecao(), colecao.getNumVolume(), colecao.getValorUnit());
+        }
+        for (int i = 0; i < colecoes.size(); i++) {
+            if (colecoes.get(i) != null && colecoes.get(i).getNomeColecao().equals(colecoes.get(i).getNomeColecao())) {
+                jaExiste = true;
+                erroNoCadastro(jaExiste, colecoes.get(i).getNomeColecao(), colecoes.get(i).getNumVolume(), colecoes.get(i).getValorUnit());
+            }
+        }
+        if (jaExiste == false) {
+            colecoes.add(colecao);
         }
     }
 
