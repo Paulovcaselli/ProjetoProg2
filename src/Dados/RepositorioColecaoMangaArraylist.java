@@ -13,7 +13,7 @@ public class RepositorioColecaoMangaArraylist implements RepositorioColecaoManga
 
     ArrayList<ColecaoManga> colecoes = new ArrayList();
 
-    @Override
+    //@Override
     public void inserir(ColecaoManga colecao) throws FalhaNoCadastroColecaoException {
         boolean jaExiste = false;
         if (colecao.getNomeColecao().equals("") || colecao.getNumVolume().equals("") || colecao.getValorUnit().equals("")) {

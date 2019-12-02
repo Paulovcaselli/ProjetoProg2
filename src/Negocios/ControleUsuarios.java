@@ -61,23 +61,38 @@ public class ControleUsuarios {
 		ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(path));
 		usuarios = (RepositorioUsuarioArray) ois.readObject();
 	}*/
-    public void gravarDados() throws IOException {
+    public void gravarDados(Usuario usuario) throws IOException {
 
-        Usuario usuario = new Usuario();
+        //Usuario usuario = new Usuario();
         File f = new File("Usuarios.txt");
-        FileOutputStream fos = new FileOutputStream(f);
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(usuario);
-        oos.close();
+
+        try {
+            FileOutputStream fos = new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(usuario);
+            oos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Erro!");
+        }
     }
 
-    public void lerDados() throws IOException, ClassNotFoundException {
+    public Usuario lerDados() throws IOException, ClassNotFoundException {
 
         File f = new File("Usuarios.txt");
-        FileInputStream fis = new FileInputStream(f);
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        Object o = ois.readObject();
-        Usuario clone = (Usuario) o;
+        Usuario clone = null;
+        try {
+            FileInputStream fis = new FileInputStream(f);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Object o = ois.readObject();
+            clone = (Usuario) o;
+            //return clone;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return clone;
     }
 
 }
