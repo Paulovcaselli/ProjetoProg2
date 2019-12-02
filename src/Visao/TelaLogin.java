@@ -1,4 +1,5 @@
 package Visao;
+
 import Dados.Usuario;
 import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
@@ -101,14 +102,14 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        				try {
-					TUsuario tela = new TUsuario(FachadaUsuario.getInstance().procurar(jTextFieldUsuario.getText().toUpperCase(),
-							String.valueOf(jPasswordFieldSenha.getPassword())));
-					tela.setVisible(true);
-					dispose();
-				} catch (FalhaNaBuscaException e1) {
-					
-				}
+        try {
+            TUsuario tela = new TUsuario(FachadaUsuario.getInstance().procurar(jTextFieldUsuario.getText().toUpperCase(),
+                    String.valueOf(jPasswordFieldSenha.getPassword())));
+            tela.setVisible(true);
+            dispose();
+        } catch (FalhaNaBuscaException e1) {
+
+        }
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     private void jButtonCadastrarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarUsuarioMouseClicked
@@ -149,7 +150,7 @@ public class TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaLogin().setVisible(true);
-            }   
+            }
         });
     }
 

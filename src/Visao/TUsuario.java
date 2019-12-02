@@ -1,4 +1,5 @@
 package Visao;
+
 import Dados.Usuario;
 import Exceptions.FalhaNoCadastroException;
 import Exceptions.FalhaNaBuscaException;
@@ -16,13 +17,12 @@ import javax.swing.JOptionPane;
 public class TUsuario extends javax.swing.JFrame {
 
     static Usuario usuario;
-        
+
     public TUsuario(Usuario usuario) {
         initComponents();
-        this.usuario= usuario;
+        this.usuario = usuario;
     }
 
-  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -148,21 +148,21 @@ public class TUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuEditarUsuarioMouseClicked
 
     private void jMenuRemoverUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuRemoverUsuarioMouseClicked
-				int dialogButton = JOptionPane.YES_NO_OPTION;
-				int dialogResult = JOptionPane.showConfirmDialog(null, "Deseja excluir a conta?", "Excluindo conta",
-						dialogButton);
-				if (dialogResult == 0) {
-					try {
-						FachadaUsuario.getInstance().remover(usuario.getLogin());
-						JOptionPane.showMessageDialog(null, "Removido com sucesso !");
-						TelaLogin tela = new TelaLogin(); 
-						tela.setVisible(true);
-						dispose();
-					} catch (FalhaNaRemocaoException e1) {
-						e1.getMessage();
-						e1.printStackTrace();
-					}
-				}
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(null, "Deseja excluir a conta?", "Excluindo conta",
+                dialogButton);
+        if (dialogResult == 0) {
+            try {
+                FachadaUsuario.getInstance().remover(usuario.getLogin());
+                JOptionPane.showMessageDialog(null, "Removido com sucesso !");
+                TelaLogin tela = new TelaLogin();
+                tela.setVisible(true);
+                dispose();
+            } catch (FalhaNaRemocaoException e1) {
+                e1.getMessage();
+                e1.printStackTrace();
+            }
+        }
     }//GEN-LAST:event_jMenuRemoverUsuarioMouseClicked
 
     private void jMenuLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLogoutMouseClicked
@@ -172,7 +172,7 @@ public class TUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuLogoutMouseClicked
 
     private void jMenuDadosUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuDadosUsuarioMouseClicked
-        JOptionPane.showMessageDialog(null,usuario.toString());
+        JOptionPane.showMessageDialog(null, usuario.toString());
     }//GEN-LAST:event_jMenuDadosUsuarioMouseClicked
 
     private void jButtonCadastrarColecaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCadastrarColecaoMouseClicked

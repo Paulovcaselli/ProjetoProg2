@@ -25,7 +25,7 @@ public class RepositorioColecaoMangaArraylist implements RepositorioColecaoManga
         		colecao = null;// tratamento para null
         }
         for (int i = 0; i < colecoes.size(); i++) {
-            if (colecoes.get(i) != null && colecoes.get(i).getNomeColecao().equals(colecoes.get(i).getNomeColecao())) {
+            if (colecoes.get(i) != null && colecoes.get(i).getNomeColecao().equals(colecao.getNomeColecao())) {
                 jaExiste = true;
                 erroNoCadastro(jaExiste, colecoes.get(i).getNomeColecao(), colecoes.get(i).getNumVolume(), colecoes.get(i).getValorUnit());
             }

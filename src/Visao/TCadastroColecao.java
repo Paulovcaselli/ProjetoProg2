@@ -116,6 +116,9 @@ public class TCadastroColecao extends javax.swing.JFrame {
         try {
             FachadaUsuario.getInstance().cadastrar(colecao);
             JOptionPane.showMessageDialog(null, "Colecao cadastrada com sucesso!");
+            TUsuario tela = new TUsuario(usuario);
+            tela.setVisible(true);
+            dispose();
         } catch (FalhaNoCadastroColecaoException e1) {
             e1.getMessage();
         }
