@@ -37,8 +37,8 @@ public class ControleColecoes {
         return colecoes.procurar(nomeColecao);
     }
 
-    public RepositorioColecaoManga listar() {
-        return colecoes;
+    public ArrayList<ColecaoManga> listar() {
+        return colecoes.listar();
     }
 
 }
