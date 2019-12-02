@@ -47,7 +47,7 @@ public class RepositorioColecaoMangaArraylist implements RepositorioColecaoManga
     }
 
     @Override
-    public ArrayList listar() {
+    public ArrayList<ColecaoManga> listar() {
         return colecoes;
 
     }

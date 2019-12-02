@@ -76,13 +76,13 @@ public class FachadaUsuario {
         this.usuario.atualizar(usuario);
     }
 
-    public ControleMangas listar() {
+    /*public ControleMangas listar() {
         return mangas;
-    }
-
-    /*public ControleColecoes listar() {
-        return colecoes;
     }*/
+
+    public ControleColecoes listar() {
+        return colecoes;
+    }
 
  /*public void salvar() throws IOException {
 		this.usuario.gravarDados();
